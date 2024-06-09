@@ -71,7 +71,7 @@ scrape_configs:
         - localhost:9090
   - job_name: node # Change to whatever you like
     static_configs:
-      - targets: ['109.120.133.122:3090'] #Change this to your server's IP
+      - targets: ['109.120.133.122:9100'] # Change this to your server's IP, 9100 - Node Exporter port
 ```
 
 ## 3. Node Exporter install and setup:
