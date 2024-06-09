@@ -46,6 +46,33 @@ services:
 volumes:
   prom_data:
 ```
+- prometheus/prometheus/prometheus.yml
+```
+global:
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  evaluation_interval: 15s
+alerting:
+  alertmanagers:
+    - static_configs:
+      - targets: []
+      scheme: http
+      timeout: 10s
+      api_version: v1
+scrape_configs:
+  - job_name: prometheus
+    honor_timestamps: true
+    scrape_interval: 15s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets:
+        - localhost:9090
+  - job_name: node # Change to whatever you like
+    static_configs:
+      - targets: ['109.120.133.122:3090'] #Change this to your server's IP
+```
 
 ## 3. Node Exporter install and setup:
  
@@ -103,9 +130,10 @@ RestartSec=3
 
 [Install]
 WantedBy=multi-user.target
-Save and exit the editor.
-Enable and Start the Service¶
 ```
+Save and exit the editor.
+
+Enable and Start the Service
 #### Reload the systemd daemon
 
 ```
