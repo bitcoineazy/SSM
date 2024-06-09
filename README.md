@@ -92,10 +92,10 @@ tar xvf node_exporter-1.7.0.linux-amd64.tar.gz
 #### Move the Node Exporter Binary
 Change to the directory and move the node_exporter binary to /usr/local/bin:
 
-
+```
 cd node_exporter-1.7.0.linux-amd64
-
 sudo cp node_exporter /usr/local/bin
+```
 
 #### Create a Node Exporter User
 Create a dedicated user for running Node Exporter:
